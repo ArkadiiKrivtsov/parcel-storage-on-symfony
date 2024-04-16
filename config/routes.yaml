@@ -1,0 +1,20 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+app.swagger_ui:
+    path: /
+    methods: GET
+    defaults: { _controller: nelmio_api_doc.controller.swagger_ui }
+
+app_parcel_delete:
+    path: /api/parcel/{id}
+    controller: App\Controller\ParcelDeleteController::__invoke
+    methods: DELETE
+
+app_parcel_delete_no_id:
+    path: /api/parcel/
+    controller: App\Controller\ParcelDeleteController::showError
+    methods: DELETE
